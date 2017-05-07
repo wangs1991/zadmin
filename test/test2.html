@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>新版后端改版测试</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://static.ws.kukuplay.com/common/lib/jquery/v1.9.2/jquery-1.9.2.js"></script>
+        <script type="text/javascript" src="/lib/adminload.js"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div class="ztitle">
+                <h5>标题</h5>
+                <a href="asdf">asdfasd</a>
+            </div>
+            <div class="cond">
+                <div class="form full"><label >sdfs</label>
+                    <div class="btn btn-info fright">sdfsd</div>
+                    <button id="test">测试</button>
+                </div>
+                <div class="form"><input type="text" />
+                    <input type="text" id="start-time" class="timepicker"/>
+                </div>
+            </div>
+            <div class="mt20">
+                <table class="table table-bordered">
+                    <thead>
+                    <th>
+                        姓名
+                    </th>
+                    <th>
+                        raido测试
+                    </th>
+                    <th>
+                        爱好
+                    </th>
+                    <th>
+                        多行编辑
+                    </th>
+                    <th>
+                        多行编辑
+                    </th>
+                    <th>
+                        图片类操作
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-key="_id" data-forbid="true">
+                                哈哈
+                                <input type="text"  class="zy-imgup"/>
+                            </td>
+                            <td data-key="radio" data-value="2">
+                                2
+                            </td>
+                            <td data-key="checkbox" data-value="['bb',5]"  class='ghy'>
+                                1,5
+                            </td>
+                            <td data-key='textarea' data-forbid="true">
+                                asdfasdfasdf
+                            </td>
+                            <!--                            <td data-key='dynimglist' data-value='[{"链接": {"key": "link", "value": "http://fengyun-bar.b0.upaiyun.com/143505201360612.png","cvalue":[{"ghy":"haha"}]}}, {"链接": {"key": "link", "value": "ttttt"}}]' data-cvalue="">
+                            
+                                                        </td>-->
+                            <td data-key='dynimglist' data-value='[{"链接": {"key": "link", "value": "http://fengyun-bar.b0.upaiyun.com/143505201360612.png","cvalue":[{"ghy":"haha"}]}}, {"链接": {"key": "link", "value": "ttttt"}}]' data-cvalue="">
+
+                            </td>
+                            <!--                            <td data-key="dynlist" data-value='[{"链接": {"key": "ghy1", "value": "2342"}}]' class='haha'>
+                                                            <input type="text" value='2345'/>
+                                                            <input type="text" value='23ss'/>
+                                                        </td>-->
+                            <td>
+                                <button class='zedite'>编辑</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript">
+//            var data = {
+//                _id: {type: "text", name: "标题1", value: "123"},
+//                _id2: {type: "text", name: "标题4", value: "4"},
+//                _id3: {type: "text", name: "标题5", value: "5"},
+//                radio: {type: "radio", check: [{name: "男", value: "1"}, {name: "女", value: "2"}], value: "1"},
+//                checkbox: {type: "checkbox", check: [{name: "男", value: "1"}, {name: "n女", value: "5"}, {name: "阿斯蒂芬", value: "3"}], value: ["1"]},
+//                textarea: {type: "textarea", name: "描述", value: "haha"},
+//                dynlist: {type: "dynlist", name: "动态列表", list: [{name: "中文描述", key: "ghy1"}, {name: "bb", key: "sdg"}], value: [{"链接": {"key": "ghy1", "value": "2342"}}]}
+//            };
+            var data2 = {
+                _id: {type: "text", name: "标题1"},
+                _id2: {type: "text", name: "标题4"},
+                imgup: {type: "imgup", name: "标题4"},
+                _id3: {type: "text", name: "标题5", value: "5"},
+               
+        select: {type: "select", name: "复选框", select: [{name: "中国", value: "2"}, {name: "meiguo", value: "3"}], value: "3"},
+               
+        radio: {type: "radio", check: [{name: "男", value: "1"}, {name: "女", value: "2"}]},
+                checkbox: {type: "checkbox", check: [{name: "男", value: "1"}, {name: "n女", value: "5"}, {name: "阿斯蒂芬", value: "3"}]},
+                textarea: {type: "textarea", name: "描述", value: "haha"},
+                dynlist: {type: "dynlist", name: "动态列表", list: [{name: "链接", key: "ghy1"}]},
+                dynimglist: {type: "dynlist", name: "帖子图片", imgup: "true", list: [{name: "图片链接", key: "link"}]},
+                zlist: {type: "zlist", name: "xxx", dtype: "number"}
+            };
+            window.UpConf = {
+                upurl: "http://lesports.picture.kukuplay.com/picture/multiupload", //乐视体育 多图片上传接口
+//                upurl: "/picture/imgupload", //章鱼单图片上传
+                success: function (ret, el) {// 上传成功后回调函数
+                    console.log("上传成功回调  success。。", ret);
+                    $(el).attr("data-cvalue", JSON.stringify(ret));
+                }
+//                , returl: "origin"
+            }
+            zadmin.ready(function () {
+                $("#test").on("click", function () {
+                    cform.cform(data2, function (ret) {
+                        console.log(ret)
+                    });
+                })
+                console.log("....")
+//                cform.cform(data2);
+                $(".zedite").on("click", function () {
+                    var el = $(this).parent().parent();
+                    zform.eform(el, data2, function (retdata) {
+                        alert(JSON.stringify(retdata));
+                    });
+                })
+            });
+            var a = [];
+            var b = [{a: 1, "b": [{"gh": "v"}]}]
+            var c = {"ghy": b}
+            a.push(c);
+            var a = {"haha": {"ghy": 1}};
+            var b = {};
+            for (var key in a) {
+//                console.log(key, b[key]);
+                b[key] = {};
+                b[key] = a[key]
+                b[key]["value"] = 2;
+            }
+//            console.log(JSON.stringify(a), JSON.stringify(b))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+[
+    {
+        "name": "coolAdmin",
+        "url": "/page/cooladmin/course/start.html",
+        "tag": [
+            {
+                "name": "光速上手",
+                "title": "上手指南",
+                "url": "/page/cooladmin/course/start.html",
+                "links": [
+                    {
+                        "name": "cdn 资源集合",
+                        "url": "/page/cooladmin/course/cdnlib.html"
+                    },
+                    {
+                        "name": "快速开始",
+                        "url": "/page/cooladmin/course/start.html"
+                    }
+                    , {
+                        "name": "demo",
+                        "url": "/page/cooladmin/course/demo.html"
+                    },{
+                        "name": "结构介绍",
+                        "url": "/page/cooladmin/course/structure.html"
+                    }, {
+                        "name": "工具函数",
+                        "url": "/page/cooladmin/course/utils.html"
+                    },{
+                        "name": "zform 教程",
+                        "url": "/page/cooladmin/course/zform.html"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "zlib",
+        "url": "#",
+        "tag": [
+            {
+                "name": "UI",
+                "url": "/page/zlibui/wave.html",
+                "links": [
+                    {
+                        "name": "水纹插件",
+                        "url": "/page/zlibui/wave.html"
+                    }
+                ]
+            },
+            {
+                "name": "扩展插件",
+                "url": "/page/zlibplug/scroll.html",
+                "links": [{
+                        "name": "滚动条插件",
+                        "url": "/page/zlibplug/scroll.html"
+                    },{
+                        "name": "轮播插件",
+                        "url": "/page/zlibplug/zslide.html"
+                    }
+                ]
+            }
+        ]
+    }
+]
